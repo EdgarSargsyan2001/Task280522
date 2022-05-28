@@ -1,0 +1,43 @@
+.Nav{
+    width: 100vw;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://www.jacaranda.com.au/wp-content/uploads/2017/11/bg-nav-bar-e1522125676147.jpg');
+    background-position: center;
+    z-index: 3;
+  }
+.item{
+    margin:0 10px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 600;
+    color: rgb(33, 225, 12);
+    text-transform: capitalize;
+
+}
+.item:hover{
+    color: white;
+    
+}
+
+
+@media screen and (max-width:700px) {
+
+    .item{
+        margin:0 5px;
+        font-size: 18px;
+    
+    }
+} 
+@media screen and (max-width:450px) {
+
+    .item{
+        margin:0 3px;
+        font-size: 15px;
+    
+    }
+}

@@ -1,0 +1,102 @@
+
+
+.imageContent{
+
+    display: grid;
+    grid-template-columns: 400px 400px 400px ;
+    grid-template-rows: auto;
+    justify-content: center;
+    grid-gap: 21px;
+    padding: 100px 0;
+    margin-top: 70px;
+    background-image: url('https://img.freepik.com/free-vector/blue-pink-halftone-background_53876-99004.jpg?w=2000');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.image{
+    width: 400px;
+    border: 3px solid white;
+    height: 300px;
+    opacity: 0.8;
+    transition: 0.5s;
+}
+.image:hover{
+
+    box-shadow: 1px 1px 0 1000vw rgba(0, 0, 0, 0.85);
+    opacity: 1;
+    transform: scale(1.2,1.2) ;
+    z-index: 2;
+
+}
+
+
+
+.moreButton{
+    width: 100px;
+    height: 100px;
+    color: rgb(33, 225, 12);
+    background-image:linear-gradient(#53b034,#352856FF ) ;
+    font-weight: 600;
+    font-size: 20px;
+    position:fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    border-radius: 20%;
+    border:none;
+    z-index: 3;
+}
+
+.moreButton:hover{
+    color: white;
+    box-shadow: 0 0 5px #6fe648,
+                 0 0 25px #6fe648,
+                  0 0 50px #352856FF,
+                   0 0 100px #6fe648;
+}
+
+
+@media screen and (max-width:1300px) {
+    .imageContent{
+        grid-template-columns: 300px 300px 300px ;
+
+    }
+    .image{
+        width: 300px;
+    }
+}
+@media screen and (max-width:1000px) {
+    .imageContent{
+        padding: 70px 0;
+        grid-template-columns: 300px 300px  ;
+
+    }
+    .image{
+        width: 300px;
+    }
+}
+ 
+@media screen and (max-width:700px) {
+    .imageContent{
+        padding: 50px 0;
+        grid-template-columns: 250px 250px  ;
+
+    }
+    .image{
+        width: 250px;
+        height: 250px;
+    }
+} 
+@media screen and (max-width:550px) {
+
+    .imageContent{
+        padding: 30px 0;
+        grid-template-columns: 300px ;
+
+    }
+    .image{
+        width: 300px;
+        height: 300px;
+    }
+} 
