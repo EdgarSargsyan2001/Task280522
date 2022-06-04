@@ -1,33 +1,35 @@
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import useFetchImg from "../../useFetchHooks/useFetchImg"
 import './ImagesContent.css' 
 
 
-function ImagesContent(){
-
+function ImagesContent({home}){
     
-    const categorie = useSelector((state)=>state.categorie)
-    const limit = useSelector((state)=>state.limit)
     const dispatch = useDispatch()
-    
-    const {data,loading} = useFetchImg(categorie,limit)
 
-    const chlickMore = () => {
-        dispatch({
-            type:'cahnge-limitValue',
-            value:limit + 10
-        })
-    }
+    const categorie = useSelector((state)=>state.categorie)
+    const render = useSelector((state)=>state.render)
+    const data = useSelector((state)=>state.images)
+    
+    const {loading} = useFetchImg(!home?categorie:home,render)
+    
+    const chlickMore = () => dispatch({type:'render'})
+
+    useEffect(()=>{
+        dispatch({type:'clear-images'})
+        
+    },[])
 
     return(
         <div className="imageContent">
       
             {
-               data.map(el => <img 
-                                key={el.id} 
-                                className='image' 
+               data.map(el=> <img 
+                                key={el.id + Math.random()} 
                                 src={el.url} 
                                 alt={el.url}
+                                className='image' 
                             />
                         )
             }

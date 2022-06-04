@@ -1,5 +1,4 @@
 
-
 .imageContent{
 
     display: grid;
@@ -8,10 +7,10 @@
     justify-content: center;
     grid-gap: 21px;
     padding: 100px 0;
-    margin-top: 70px;
-    background-image: url('https://img.freepik.com/free-vector/blue-pink-halftone-background_53876-99004.jpg?w=2000');
-    background-size: cover;
-    background-attachment: fixed;
+    /* margin-top: 70px; */
+    /* background-image: url('https://img.freepik.com/free-vector/blue-pink-halftone-background_53876-99004.jpg?w=2000'); */
+    /* background-size: cover;
+    background-attachment: fixed; */
 }
 
 .image{

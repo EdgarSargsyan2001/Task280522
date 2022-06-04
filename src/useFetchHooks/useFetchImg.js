@@ -1,25 +1,31 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 
-function useFetchImg(id = 1,limit = 10){
+function useFetchImg(id = 1,render){
 
-    const [data,setData] = useState([])
+    // const [data,setData] = useState([])
+    const dispatch = useDispatch()
+
     const [loading,setLoading] = useState(false)
     const [error,setError] = useState('')
-
-
+    
     useEffect(()=>{
         setLoading(true)
-        fetch(`https://api.thecatapi.com/v1/images/search?limit=${limit}&page=1&category_ids=${id}`)
+
+        fetch(`https://api.thecatapi.com/v1/images/search?limit=10&page=1&category_ids=${id}`)
         .then(resp=>resp.json())
-        .then(resp=>setData(resp))
+        .then(resp=>dispatch({
+            type:'add-images',
+            value:resp
+        }))
         .catch((err)=>setError(err))
         .finally(()=>setLoading(false))
 
-    },[id,limit])
+    },[id,render])
 
     return {
-        data,
+        // data,
         loading,
         error
     }

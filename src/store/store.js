@@ -8,18 +8,34 @@ const store = createStore((state,action)=>{
             categorie:action.value
         }
     }
-    if(action.type === 'cahnge-limitValue'){
+    if(action.type === 'render'){
         return {
             ...state,
-            limit:action.value
+            render:Math.random()
+        }
+    }
+    if(action.type === 'add-images'){
+        return {
+            ...state,
+            images:[ 
+                ...state.images,
+                ...action.value
+            ]
+        }
+    }
+    if(action.type === 'clear-images'){
+        return {
+            ...state,
+            images:[]
         }
     }
 
     return state
 
 },{
+    images:[],
     categorie:1,
-    limit:10
+    render:Math.random()
 })
 
 

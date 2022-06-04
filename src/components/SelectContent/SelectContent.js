@@ -1,42 +1,25 @@
-import { useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
 import useFetchcategories from "../../useFetchHooks/useFetchcategories"
 import './SelectContent.css'
 
 
 function SelectContent(){
 
-    const dispatch = useDispatch()
     const {data} = useFetchcategories()
 
-    const SelectChange = (val) => {
-        dispatch({
-            type:'cahnge-limitValue',
-            value:10
-        })
-        dispatch({
-            type:'cahnge-categorieValue',
-            value:val
-        })
-    }
-
     return(
-      <div className='Nav'>
-        <div className="categorieDiv">
+      <div className='categories'>
+        <ol>
             {
-                data.map( el => {
-                    return(
-                        <span 
-                            key={el.id} 
-                            value={el.id}
-                            className='item'
-                            onClick={()=>SelectChange(el.id)}
-
-                        >{el.name}</span>
-                    )
-                })
+              data.map(el => {
+                return(
+                    <Link key={el.id} to={`/category/${el.id}`}>
+                        <li className='item' >{el.name}</li>
+                    </Link>
+                )
+              })
             }
-            
-        </div>
+        </ol>
       </div>
     )
 }
